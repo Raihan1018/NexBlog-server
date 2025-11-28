@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
  * GET /api/blogs
  * Get all blogs
  */
-app.get("/api/blogs", async (req, res) => {
+app.get("/blogs", async (req, res) => {
   try {
     const blogs = await blogsCollection.find().sort({ date: -1 }).toArray();
     res.json(blogs);
@@ -69,7 +69,7 @@ app.get("/api/blogs", async (req, res) => {
  * GET /api/blogs/:id
  * Get a single blog by ID
  */
-app.get("/api/blogs/:id", async (req, res) => {
+app.get("/blogs/:id", async (req, res) => {
   const { id } = req.params;
 
   if (!ObjectId.isValid(id)) {
@@ -94,7 +94,7 @@ app.get("/api/blogs/:id", async (req, res) => {
  * POST /api/blogs
  * Create a new blog
  */
-app.post("/api/blogs", async (req, res) => {
+app.post("/blogs", async (req, res) => {
   try {
     const { name, email, user_img, cover_img, title, description } = req.body;
 
@@ -130,7 +130,7 @@ app.post("/api/blogs", async (req, res) => {
  * PUT /api/blogs/:id
  * Update an existing blog}
  */
-app.put("/api/blogs/:id", async (req, res) => {
+app.put("/blogs/:id", async (req, res) => {
   const { id } = req.params;
 
   if (!ObjectId.isValid(id)) {
@@ -181,7 +181,7 @@ app.put("/api/blogs/:id", async (req, res) => {
  * DELETE /api/blogs/:id
  * Delete a blog by ID
  */
-app.delete("/api/blogs/:id", async (req, res) => {
+app.delete("/blogs/:id", async (req, res) => {
   const { id } = req.params;
 
   if (!ObjectId.isValid(id)) {
