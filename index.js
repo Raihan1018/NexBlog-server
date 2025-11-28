@@ -29,7 +29,6 @@ const client = new MongoClient(uri, {
 });
 
 let blogsCollection;
-
 async function connectDB() {
   try {
     // await client.connect();
@@ -206,9 +205,9 @@ app.delete("/api/blogs/:id", async (req, res) => {
   }
 });
 
-// Start server only after DB is connected
-connectDB().then(() => {
-  app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-  });
-});
+
+// connectDB().then(() => {
+//   app.listen(port, () => {
+//     console.log(`Server listening on port ${port}`);
+//   });
+// });
