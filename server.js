@@ -13,12 +13,7 @@ const port = process.env.PORT || 5050;
 /**
  * Middleware setup for CORS and JSON parsing.
  */
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 // --- MongoDB Connection Setup ---
@@ -223,7 +218,6 @@ app.delete("/blogs/:id", async (req, res) => {
 });
 
 // --- Server Startup ---
-
 
 // connectDB().then(() => {
 //   app.listen(port, () => {
