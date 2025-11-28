@@ -11,7 +11,6 @@ const port = process.env.PORT || 5050;
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -204,7 +203,6 @@ app.delete("/api/blogs/:id", async (req, res) => {
     res.status(500).json({ message: "Failed to delete blog" });
   }
 });
-
 
 // connectDB().then(() => {
 //   app.listen(port, () => {
